@@ -1,0 +1,81 @@
+<!-- Hero Section -->
+<div class="container-fluid bg- text-black py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-4">BIENVENIDOS AL PANEL DE ADMINISTRACIÓN</h1>
+        <p class="lead mb-4">Empleados del TuTi</p>
+        <div class="d-flex gap-3">
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="https://tuti.com.ec/wp-content/uploads/2023/10/banner_home_2.png" alt="..."
+          class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mb-2">
+    <div class="col text-start">
+      <h2 class="">Registro de empleados</h2>
+    </div>
+  </div>
+
+  <!-- Campo de búsqueda -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm"
+          placeholder="Buscar trabajador por nombre o ID..." (keyup.enter)="onSearch()" />
+        <button class="btn btn-primary bg-success" type="button" (click)="onSearch()">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center">
+    <button class="btn btn-success" routerLink="/miapi/create">
+      Agregar nuevo registro
+    </button>
+  </div>
+
+  <!-- Tabla de resultados -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Roll</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Email</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of searchResults; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.apellido }}</td>
+        <td>{{ empleado.roll }}</td>
+        <td>{{ empleado.edad }}</td>
+        <td>{{ empleado.email }}</td>
+        <td>
+          <!-- Botón de Eliminar -->
+          <button class="btn btn-danger btn-sm me-2" (click)="eliminarEmpleado(empleado._id)">
+            Eliminar
+          </button>
+          <!-- Botón de Actualizar -->
+          <button class="btn btn-primary btn-sm" [routerLink]="['/miapi/update', empleado._id]">
+            Editar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

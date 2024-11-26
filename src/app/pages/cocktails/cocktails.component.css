@@ -1,0 +1,48 @@
+/* Estilos para el modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(23, 158, 34, 0.5);
+  }
+  
+  .modal {
+    z-index: 1050;
+  }
+  
+  .modal.show {
+    background-color: rgba(231, 220, 228, 0.5);
+  }
+  
+  /* Estilos generales */
+  :host {
+    display: block;
+  }
+  
+  .container {
+    padding-bottom: 2rem;
+  }
+  
+  /* Estilos para las cards */
+  .card {
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Estilos para el spinner de carga */
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  /* Estilos para el formulario de búsqueda */
+  .input-group .btn {
+    margin-left: 0.5rem;
+  }

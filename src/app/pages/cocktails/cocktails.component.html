@@ -1,0 +1,108 @@
+<div class="container mt-4">
+  <!-- Header -->
+  <div class="row mb-4">
+    <div class="col text-center">
+      <h2 class="display-4">COCTELES</h2>
+    </div>
+  </div>
+
+  <!-- Búsqueda -->
+  <div class="row mb-4">
+    <div class="col-md-6 mx-auto">
+      <div class="input-group">
+        <input 
+          type="text" 
+          class="form-control" 
+          [(ngModel)]="searchTerm"
+          placeholder="Buscar por nombre..."
+          (keyup.enter)="searchCocktails()">
+        <button 
+          class="btn btn-primary bg-success" 
+          type="button"
+          (click)="searchCocktails()">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+       
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="text-center my-5" *ngIf="loading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div class="alert alert-danger" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <!-- Pagination Top -->
+  <app-pagination
+    *ngIf="totalItems > 0"
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+
+  <!-- Cocktail Cards -->
+  <app-card-list
+    [items]="cocktails"
+    (cardClick)="onCocktailClick($event)">
+  </app-card-list>
+
+  <!-- Pagination Bottom -->
+  <app-pagination
+    *ngIf="totalItems > 0"
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+
+  <!-- Modal para mostrar detalles del cóctel -->
+  <div class="modal fade" [class.show]="selectedCocktail" id="cocktailModal" tabindex="-1"
+       [style.display]="selectedCocktail ? 'block' : 'none'">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{selectedCocktail?.name}}</h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body" *ngIf="selectedCocktail">
+          <div class="row">
+            <div class="col-md-6">
+              <img [src]="selectedCocktail.image" [alt]="selectedCocktail.name" 
+                   class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+              <h6 class="mb-3">Ingredientes:</h6>
+              <ul class="list-unstyled">
+                <li *ngFor="let ingredient of selectedCocktail.ingredients; let i = index">
+                  {{selectedCocktail.measures[i]}} {{ingredient}}
+                </li>
+              </ul>
+              <h6 class="mb-2">Instrucciones:</h6>
+              <p>{{selectedCocktail.instructions}}</p>
+              <p><strong>Categoría:</strong> {{selectedCocktail.race}}</p>
+              <p><strong>Tipo:</strong> {{selectedCocktail.ki}}</p>
+              <p><strong>Vaso:</strong> {{selectedCocktail.glass}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Backdrop -->
+  <div class="modal-backdrop fade show" *ngIf="selectedCocktail"></div>
+
+  <!-- No Results Message -->
+  <div class="text-center my-5" *ngIf="!loading && cocktails.length === 0">
+    <p class="lead text-muted">No se encontraron cócteles</p>
+  </div>
+</div>

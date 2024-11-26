@@ -1,0 +1,54 @@
+.pagination {
+    margin-bottom: 0;
+    gap: 5px;
+  }
+  
+  .page-link {
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: #21df2ab6;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #f4edf7;
+    border-color: #180213;
+    color: rgb(10, 1, 1);
+  }
+  
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+  }
+  
+  .ellipsis {
+    background-color: transparent !important;
+    border: none !important;
+    pointer-events: none;
+  }
+  
+  /* Efectos hover */
+  .page-link:not(.ellipsis):hover {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    color: #9c4c96;
+  }
+  
+  .page-item.active .page-link:hover {
+    background-color: #6024ec83;
+    color: white;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .page-link {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+    
+    .pagination {
+      gap: 3px;
+    }
+  }

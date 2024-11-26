@@ -1,0 +1,67 @@
+/* Agregar estos estilos en tu archivo CSS */
+
+/* Efectos hover para los botones de navegación */
+.nav-link.btn-outline-light {
+    transition: all 0.3s ease;
+  }
+  
+  img.rounded-circle{
+    border-radius: 50%;
+}
+  
+  .nav-link.btn-outline-light:hover {
+    background-color: rgba(222, 228, 231, 0.2) !important;
+    transform: translateY(-1px);
+  }
+  
+  /* Animación para el dropdown */
+  .animate {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0rem);
+      opacity: 1;
+    }
+  }
+  
+  .slideIn {
+    animation-name: slideIn;
+  }
+  
+  /* Estilos para el dropdown */
+  .dropdown-menu {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .dropdown-item {
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #26e25e;
+    transform: translateX(5px);
+  }
+  
+  /* Ajustes responsive */
+  @media (max-width: 991.98px) {
+    .navbar-nav {
+      padding: 1rem 0;
+    }
+    
+    .nav-item {
+      margin: 0.5rem 0 !important;
+    }
+  }

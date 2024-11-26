@@ -1,0 +1,46 @@
+h1.display-4 {
+  color: #1b090b;
+  font-weight: 700;
+}
+
+.lead.text-muted {
+  color: #021314 !important;
+}
+
+/* Loading Spinner Styles */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Error Message Styles */
+.alert-danger {
+  background-color: #fff3f3;
+  border-color: #f5c6cb;
+  color: #0c0102;
+}
+
+/* Pokemon Type Badge Colors */
+:host ::ng-deep .badge[data-type] {
+  text-transform: capitalize;
+  padding: 0.5em 1em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Container Spacing */
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h1.display-4 {
+    font-size: 2.5rem;
+  }
+  
+  .lead {
+    font-size: 1rem;
+  }
+}

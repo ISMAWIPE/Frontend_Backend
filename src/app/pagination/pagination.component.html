@@ -1,0 +1,29 @@
+<nav aria-label="Page navigation" class="my-4">
+  <ul class="pagination justify-content-center">
+    <!-- Botón Previous -->
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="onPrevious()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+
+    <!-- Páginas -->
+    <li class="page-item" *ngFor="let page of getPages()" 
+        [class.active]="currentPage === page"
+        [class.disabled]="page === '...'">
+      <a class="page-link" 
+         (click)="onPageChange(page)"
+         [class.ellipsis]="page === '...'"
+         [style.cursor]="page === '...' ? 'default' : 'pointer'">
+        {{page}}
+      </a>
+    </li>
+
+    <!-- Botón Next -->
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" (click)="onNext()" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

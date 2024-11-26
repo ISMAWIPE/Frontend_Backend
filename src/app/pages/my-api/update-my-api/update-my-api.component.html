@@ -1,0 +1,47 @@
+<h2>Editar datos del Empleado</h2>
+<form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre del empleado" />
+  </div>
+
+  <div class="mb-3">
+    <label for="apellido" class="form-label">Apellido</label>
+    <input id="apellido" class="form-control" formControlName="apellido" placeholder="Apellido del empleado" />
+  </div>
+
+  <div class="mb-3">
+    <label for="roll" class="form-label">Roll</label>
+    <select id="roll" class="form-control" formControlName="roll">
+      <option value="" disabled selected>Seleccione un rol</option>
+      <option value="Cajero/a">Cajero/a</option>
+      <option value="Reponedor/a">Reponedor/a</option>
+      <option value="Auxiliar de Piso">Auxiliar de Piso</option>
+      <option value="Cocinero/a">Cocinero/a</option>
+      <option value="Carnicero/a">Carnicero/a</option>
+      <option value="Pescadero/a">Pescadero/a</option>
+      <option value="Florista">Florista</option>
+      <option value="Empleado de Servicio al Cliente">Empleado de Servicio al Cliente</option>
+      <option value="Supervisor de Piso">Supervisor de Piso</option>
+      <option value="Gerente de Supermercado">Gerente de Supermercado</option>
+      <option value="Encargado de Bodega">Encargado de Bodega</option>
+      <option value="Gestor de Seguridad">Gestor de Seguridad</option>
+      <option value="Empacador/a">Empacador/a</option>
+      <option value="Operador de Máquina">Operador de Máquina</option>
+      <option value="Atención al Cliente en Línea">Atención al Cliente en Línea</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="edad" class="form-label">Edad</label>
+    <input id="edad" class="form-control" type="number" formControlName="edad" placeholder="Edad del empleado" />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input id="email" class="form-control" type="email" formControlName="email" placeholder="Email del empleado" />
+  </div>
+
+  <button type="submit" class="btn btn-primary me-2">Guardar cambios</button>
+  <button type="button" class="btn btn-secondary" (click)="router.navigate(['/miapi/list'])">Cancelar</button>
+</form>
